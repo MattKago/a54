@@ -420,6 +420,7 @@ function SPA() {
   const [view, setView] = useState("Dashboard");
   const [driver, setDriver] = useState({ name: "LOADING...", tag: "...", rating: 2847 });
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -494,15 +495,29 @@ function SPA() {
 
   return (
     <div className="app-layout">
+      {/* Mobile Header */}
+      <div className="mobile-header">
+        <div className="app-brand" onClick={() => window.location.href="A54 Racing.html"} style={{ padding: 0, border: 'none' }}>
+          <img src="assets/a54-logo.png" alt="GRI" />
+          <span className="app-brand-name">GLOBAL RACING INDEX</span>
+        </div>
+        <button className="mobile-menu-btn" onClick={() => setMenuOpen(true)}>
+          <i className="ph ph-list" style={{ fontSize: '24px' }}></i>
+        </button>
+      </div>
+
+      {/* Sidebar Overlay */}
+      <div className={`sidebar-overlay ${menuOpen ? 'open' : ''}`} onClick={() => setMenuOpen(false)}></div>
+
       {/* Sidebar */}
-      <aside className="app-sidebar">
+      <aside className={`app-sidebar ${menuOpen ? 'open' : ''}`}>
         <div className="app-brand" onClick={() => window.location.href="A54 Racing.html"}>
           <img src="assets/a54-logo.png" alt="GRI" />
           <span className="app-brand-name">GLOBAL RACING INDEX</span>
         </div>
         <nav className="app-nav">
           {["Dashboard", "Profile", "Leaderboards", "Events", "Results", "Settings"].map(v => (
-            <div key={v} className={"app-nav-link " + (view === v ? "active" : "")} onClick={() => setView(v)}>
+            <div key={v} className={"app-nav-link " + (view === v ? "active" : "")} onClick={() => { setView(v); setMenuOpen(false); }}>
               {v}
             </div>
           ))}
