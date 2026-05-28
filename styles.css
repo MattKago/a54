@@ -852,6 +852,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .top-actions { display: none; }
   .rating-display { display: none; }
   .mobile-actions { display: flex; }
+  .dash-grid { display: flex; flex-direction: column; }
+  .events-grid { grid-template-columns: 1fr; }
+  .breakdown-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 600px) {
