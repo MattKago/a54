@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>A54 Racing</title>
+  <script>
+    // If Supabase sends an auth token to the root, forward it to auth.html to be processed
+    if (window.location.hash && window.location.hash.includes("access_token")) {
+      window.location.replace("auth.html" + window.location.hash);
+    } else {
+      // Otherwise go to the main landing page
+      window.location.replace("A54 Racing.html");
+    }
+  </script>
+</head>
+<body>
+</body>
+</html>
