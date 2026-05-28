@@ -498,7 +498,7 @@ function SPA() {
       <aside className="app-sidebar">
         <div className="app-brand" onClick={() => window.location.href="A54 Racing.html"}>
           <img src="assets/a54-logo.png" alt="GRI" />
-          <span className="app-brand-name">GRI</span>
+          <span className="app-brand-name">GLOBAL RACING INDEX</span>
         </div>
         <nav className="app-nav">
           {["Dashboard", "Profile", "Leaderboards", "Events", "Results", "Settings"].map(v => (
